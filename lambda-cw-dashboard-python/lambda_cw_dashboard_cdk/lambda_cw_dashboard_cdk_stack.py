@@ -52,20 +52,6 @@ class LambdaCwDashboardCdkStack(Stack):
             "service": "CWMApp-Lambda"
         }
 
-        successful_greetings = cw.Metric(metric_name="SuccessfulGreetings", namespace="CWMApp", statistic="sum",
-                                  dimensions_map=dimensions_service, period=Duration.seconds(10))
-        
-        innvocation_widget_3 = cw.GraphWidget(title="Count - From Custom Metrics",
-                                              left=[successful_greetings],
-                                              width=24)
-
-        memory_metric = cw.Metric(metric_name="memory_utilization", namespace="LambdaInsights", statistic="avg",
-                                  dimensions_map=dimensions_function_name, period=Duration.seconds(10))
-
-        innvocation_widget_2 = cw.GraphWidget(title="Memory Utilization - From LambdaInsights",
-                                              left=[memory_metric],
-                                              width=24)
-
         title_widget = cw.TextWidget(
             markdown="# Dashboard: {}".format(lambda_handler.function_name),
             height=1,
@@ -74,6 +60,20 @@ class LambdaCwDashboardCdkStack(Stack):
         innvocation_widget_1 = cw.GraphWidget(title="Invocations",
                                               left=[
                                                   lambda_handler.metric_invocations()],
+                                              width=24)
+        
+        memory_metric = cw.Metric(metric_name="memory_utilization", namespace="LambdaInsights", statistic="avg",
+                                  dimensions_map=dimensions_function_name, period=Duration.seconds(10))
+
+        innvocation_widget_2 = cw.GraphWidget(title="Memory Utilization - From LambdaInsights",
+                                              left=[memory_metric],
+                                              width=24)
+        
+        successful_greetings = cw.Metric(metric_name="SuccessfulGreetings", namespace="CWMApp", statistic="sum",
+                                  dimensions_map=dimensions_service, period=Duration.seconds(10))
+        
+        innvocation_widget_3 = cw.GraphWidget(title="Count - From Custom Metrics",
+                                              left=[successful_greetings],
                                               width=24)
 
         dashboard = cw.Dashboard(self, "MyFirstDashboard",
