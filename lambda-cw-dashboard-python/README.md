@@ -2,8 +2,7 @@
 This pattern helps build CloudWatch Dashboard with AWS Lambda Metrics. The Dashboard built with 4 widgets,
 1. Invocations - from AWS/Lambda Namespace
 2. memory_utilization - from LambdaInsights Namespace
-3. cpu_total_time - from LambdaInsights Namespace
-4. Custom Metrics (Proxy-Request & Proxy-Successful) - from Custom Namespace
+3. Custom Metrics (Count of successful greetings) - from Custom Namespace
 
 Learn more about this pattern at Serverless Land Patterns: https://serverlessland.com/patterns/
 
@@ -24,7 +23,7 @@ Important: this application uses various AWS services and there are costs associ
     ```
 2. Change directory to the pattern directory:
     ```
-    cd serverless-patterns/cw-dashboard-lambda-metrics
+    cd serverless-patterns/lambda_cw_dashboard_python
     ```
 3. Install dependencies
     ```
@@ -37,7 +36,7 @@ Important: this application uses various AWS services and there are costs associ
 A CloudWatch dashboard was created to display metrics from the Lambda function. The dashboard includes the following meterics.
 - Default metrics in the Default Namespace
 - Insight metrics that were collected by instrumenting the Docker Lambda function with Lambda Insight 
-- Custom metrics were sent to CloudWatch by Lambda using Powertools. The Lambda function had two custom metrics: one for all requests, and one for successful requests.
+- Custom metrics were sent to CloudWatch by Lambda using Powertools. The Lambda function has custom metrics successful requests.
 **Lambda**: Lambda is a serverless computing service offered by AWS. It allows you to run code without provisioning or managing servers. Lambda functions are triggered by events, such as HTTP requests, database changes, or file uploads.
 **CloudWatch**: CloudWatch is a monitoring service offered by Amazon Web Services (AWS). It collects and stores metrics from AWS resources, such as EC2 instances, RDS databases, and Lambda functions. CloudWatch can be used to track the performance, health, and usage of AWS resources.
 **Lambda Insight**: Lambda Insight is a feature of Lambda that allows you to collect and analyze metrics from your Lambda functions. Lambda Insight can be used to track the performance, health, and usage of your Lambda functions.
