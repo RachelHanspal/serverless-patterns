@@ -40,7 +40,8 @@ A CloudWatch dashboard was created to display metrics from the Lambda function. 
 **LambdaPowertools**: Powertools is a set of tools that can be used to collect and send custom metrics to CloudWatch. Powertools can be used with a variety of AWS services, including Lambda, EC2, and RDS.
 **Custom metrics**: Custom metrics are metrics that are not collected by default by CloudWatch. Custom metrics can be collected by using Powertools or by writing your own code.
 ## Testing
-Run some transactions from AWS Console - Lambda - Testing using the following events.
+1. Invoke the Lambda 
+2. Go to Cloudwatch dashboard and check to see if metrics have been recorded on the dashboard (note: it takes a few minutes to load the graph in case of cold start)
 
 
 
