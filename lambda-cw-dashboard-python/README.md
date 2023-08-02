@@ -25,10 +25,7 @@ Important: this application uses various AWS services and there are costs associ
     ```
     cd serverless-patterns/lambda_cw_dashboard_python
     ```
-3. Install dependencies
-    ```
-    ```
-4. Deploy the stack to your default AWS account and region.
+3. Deploy the stack to your default AWS account and region.
     ```
     cdk deploy
     ```
